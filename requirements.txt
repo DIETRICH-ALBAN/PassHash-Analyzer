@@ -1,8 +1,1 @@
-# PassHash Analyzer — Dépendances
-
-# bcrypt pour le hachage sécurisé des mots de passe
 bcrypt>=4.0.0
-
-# Les modules suivants sont dans la bibliothèque standard Python :
-# - hashlib (MD5, SHA-1, SHA-256, SHA-512)
-# - math, re, time, string, os, argparse

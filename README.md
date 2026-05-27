@@ -1,60 +1,91 @@
-# 🔐 PassHash Analyzer — Password Security & Hash Analysis Tool
+# PassHash Analyzer - Analyseur de mots de passe et generateur de hachages
 
-> **Auteur** : Jamein N. Dietrich A.  
-> **Contexte** : Projet personnel en cybersécurité — Analyse de la force des mots de passe et démonstration des attaques par hachage
+Auteur : Jamein N. Dietrich A.
+Contexte : Projet personnel en cyberscurite - Analyse de force des mots de passe et generation de hachages
 
-## 📋 Description
+## Description
 
-PassHash Analyzer est un outil éducatif Python qui permet de :
+PassHash Analyzer est un outil educatif qui permet d'analyser la force des mots de passe, de generer des hachages cryptographiques avec differents algorithmes, et de comprendre les mecanismes d'attaque par dictionnaire. Il illustre les principes fondamentaux de la securite des mots de passe et du hachage cryptographique.
 
-- **Évaluer la force d'un mot de passe** selon des critères de sécurité avancés (longueur, complexité, dictionnaire, entropie)
-- **Générer des hachages** dans les algorithmes courants (MD5, SHA-1, SHA-256, SHA-512, bcrypt)
-- **Démontrer les attaques par dictionnaire** sur des hachages MD5/SHA (à des fins éducatives)
-- **Comparer la résistance** des différents algorithmes de hachage face aux attaques par force brute
-- **Générer des rapports** d'analyse de sécurité des mots de passe
+Fonctionnalites principales :
+- Analyse de force des mots de passe (longueur, complexite, motifs faibles)
+- Calcul de l'entropie de Shannon et de l'entropie theorique
+- Generation de hachages (MD5, SHA-1, SHA-256, SHA-512, bcrypt)
+- Simulation educative d'attaque par dictionnaire
+- Benchmark comparatif des algorithmes de hachage
+- Analyse de fichiers de mots de passe avec statistiques
 
-## 🎯 Compétences cybersécurité démontrées
+## Competences cyberscurite demontrees
 
-| Compétence | Mise en œuvre |
-|-----------|---------------|
-| Cryptographie | Hachage MD5, SHA-1, SHA-256, SHA-512, bcrypt |
-| Politique de mots de passe | Évaluation de force, entropie, complexité |
-| Attaques par dictionnaire | Démonstration éducative sur hachages faibles |
-| Sécurité des hachages | Comparaison MD5 vs SHA-256 vs bcrypt |
-| Analyse d'entropie | Calcul de l'entropie de Shannon |
-| Recherche de compromis | Rainbow tables simplifiées |
+| Competence | Description |
+|---|---|
+| Cryptographie | Hachage cryptographique multi-algorithmes |
+| Analyse de force | Evaluation de la robustesse des mots de passe |
+| Entropie | Calcul de l'entropie de Shannon et theorique |
+| Attaque dictionnaire | Comprehension des mecanismes d'attaque |
+| Benchmark | Comparaison des performances cryptographiques |
+| Forensique | Analyse de fichiers de mots de passe |
 
-## ⚙️ Installation
+## Installation
 
 ```bash
-git clone https://github.com/<votre-username>/passhash-analyzer.git
+git clone <url-du-depot>
 cd passhash-analyzer
 pip install -r requirements.txt
 ```
 
-## 🚀 Utilisation
+Note : bcrypt est optionnel. Le programme fonctionne en mode simule sans lui.
 
+## Utilisation
+
+Analyser un mot de passe :
 ```bash
-# Analyser la force d'un mot de passe
-python passhash.py analyze --password "MonMotDePasse123!"
-
-# Générer des hachages pour un mot de passe
-python passhash.py hash --password "MonMotDePasse123!"
-
-# Attaque par dictionnaire sur un hachage MD5 (éducatif)
-python passhash.py crack --hash 5f4dcc3b5aa765d61d8327deb882cf99 --algorithm md5
-
-# Comparer les performances de hachage
-python passhash.py benchmark
-
-# Analyser un fichier de mots de passe
-python passhash.py analyze-file --input passwords.txt --report rapport.txt
+python3 passhash.py analyser "MonMot2Passe!"
 ```
 
-## ⚠️ Avertissement éthique
+Analyser avec generation de hachages :
+```bash
+python3 passhash.py analyser "MonMot2Passe!" --hash
+```
 
-Cet outil est conçu **exclusivement à des fins éducatives**. Les attaques par dictionnaire sont implémentées pour démontrer pourquoi les hachages faibles (MD5, SHA-1) sont vulnérables. **Ne l'utilisez jamais contre des systèmes sans autorisation.**
+Generer les hachages d'un mot de passe :
+```bash
+python3 passhash.py hacher "MonMot2Passe!"
+```
 
-## 📜 Licence
+Attaque par dictionnaire educative :
+```bash
+python3 passhash.py dictionnaire <hachage_sha256> -a SHA-256
+```
 
-MIT License — Libre d'utilisation à des fins éducatives.
+Attaque avec dictionnaire personnalise :
+```bash
+python3 passhash.py dictionnaire <hachage> -a MD5 -f mon_dico.txt
+```
+
+Benchmark de hachage :
+```bash
+python3 passhash.py benchmark
+```
+
+Analyser un fichier de mots de passe :
+```bash
+python3 passhash.py fichier mots_de_passe.txt
+```
+
+## Structure du projet
+
+```
+passhash-analyzer/
+  |-- passhash.py        # Script principal avec toutes les fonctionnalites
+  |-- requirements.txt   # Dependances Python
+  |-- README.md          # Documentation du projet
+```
+
+## Avertissement ethique
+
+Cet outil est strictement destine a un usage educatif. L'utilisation de techniques d'attaque par dictionnaire contre des systemes ou des hachages sans autorisation est illegale. Les demonstrations d'attaque sont simulees et ont pour but de comprendre les vulnerabilites afin de mieux s'en proteger. L'auteur decline toute responsabilite quant a l'utilisation abusive de cet outil.
+
+## Licence
+
+MIT License
